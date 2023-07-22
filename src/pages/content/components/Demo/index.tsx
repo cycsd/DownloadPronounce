@@ -5,4 +5,4 @@ const root = document.createElement("div");
 root.id = "extension-root";
 document.body.append(root);
 
-render(()=><App audio_src=''/>, root);
+render(()=><App audio_src='' word_text=''/>, root);
