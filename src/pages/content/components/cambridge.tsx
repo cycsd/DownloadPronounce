@@ -14,7 +14,7 @@ export function Cambridge(word:string) {
         ;
         const insert_element = document.createElement("div");
         insert_element.style.display = 'inline-block';
-        place.insertAdjacentElement('afterbegin', insert_element);
+        place.insertAdjacentElement('beforeend', insert_element);
         render(() => <App audio_src={audio_source.src} word_text={word} />, insert_element);
 
     })

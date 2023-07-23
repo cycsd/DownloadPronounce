@@ -1,18 +1,18 @@
-import { SupportWebsite, SupportWebsites } from '../utils/domain';
+import { GetCurrentWebSite, SupportWebsite } from '../utils/domain';
 import { GetLastSegmentOfUrl } from '../utils/util';
 import { Cambridge } from './components/cambridge';
+import { Webster } from './components/webster';
 
-interface Combridge {
-    webtag: 'cambridge'
-}
 
-const web = SupportWebsites.find(web => location.href.includes(web.domain));
-const word = GetLastSegmentOfUrl(location.href);
+const web = GetCurrentWebSite();
+const word = GetLastSegmentOfUrl(location.href).split('?')[0];
 const run = (web: SupportWebsite, word: string) => {
     switch (web.domain) {
         case 'dictionary.cambridge.org':
             Cambridge(word);
             break;
+        case 'www.merriam-webster.com':
+            Webster(word);
     }
 }
 

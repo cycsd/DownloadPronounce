@@ -1,5 +1,6 @@
 import { defineManifest } from "@crxjs/vite-plugin";
 import packageJson from "../package.json";
+import { GetSupportUrls } from './pages/utils/domain';
 
 // Convert from Semver (example: 0.1.0-beta6)
 const [major, minor, patch, label = "0"] = packageJson.version
@@ -16,7 +17,7 @@ const manifest = defineManifest(async () => ({
   options_page: "src/pages/options/index.html",
   background: { service_worker: "src/pages/background/index.ts" },
   permissions: [
-    "history","tabs"
+    "history", "tabs"
   ],
   action: {
     default_popup: "src/pages/popup/index.html",
@@ -27,7 +28,7 @@ const manifest = defineManifest(async () => ({
   },
   content_scripts: [
     {
-      matches: ["http://dictionary.cambridge.org/*", "https://dictionary.cambridge.org/*"],
+      matches: GetSupportUrls(),
       js: ["src/pages/content/index.tsx"],
     },
   ],

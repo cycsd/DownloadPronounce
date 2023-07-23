@@ -7,7 +7,7 @@ const App = (props: { audio_src: string, word_text: string }) => {
     navigator.clipboard.writeText(props.audio_src);
   };
   return (
-    <div class="inline-block">
+    <div class="inline-grid grid-cols-2 col-span-2">
       <button onclick={onCopyClick}>
         <img
           src={chrome.runtime.getURL(copy)}
