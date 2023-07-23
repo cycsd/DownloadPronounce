@@ -1,22 +1,29 @@
-import { GetCurrentWebSite, SupportWebsite } from '../utils/domain';
+import { GetCurrentWebSite, SupportWebsite, cambridge, freeDictionary, webster } from '../utils/domain';
 import { GetLastSegmentOfUrl } from '../utils/util';
 import { Cambridge } from './components/cambridge';
+import { FreeDictionary } from './components/freeDictionary';
 import { Webster } from './components/webster';
 
-
-const web = GetCurrentWebSite();
-const word = GetLastSegmentOfUrl(location.href).split('?')[0];
-const run = (web: SupportWebsite, word: string) => {
-    switch (web.domain) {
-        case 'dictionary.cambridge.org':
-            Cambridge(word);
-            break;
-        case 'www.merriam-webster.com':
-            Webster(word);
-    }
+interface Process {
+    website: SupportWebsite,
+    run: (word: string) => void,
 }
+const curr_web = GetCurrentWebSite();
+const word = GetLastSegmentOfUrl(location.href).split('?')[0];
+const processes: Process[] = [
+    {
+        website: cambridge,
+        run: Cambridge,
+    }, {
+        website: webster,
+        run: Webster,
+    },{
+        website: freeDictionary,
+        run: FreeDictionary,
+    }];
 
-run(web, word);
+processes.find(proc => proc.website.domain === curr_web.domain)?.run(word);
+
 
 
 

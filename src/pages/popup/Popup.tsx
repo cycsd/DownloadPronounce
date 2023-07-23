@@ -15,7 +15,7 @@ const Popup = () => {
   }
 
   const getHistory = async () => {
-    const histories = await chrome.history.search({ text: '' });
+    const histories = await chrome.history.search({ text: '',maxResults:200 });
     return histories.filter(
       his => SupportWebsites.some(web => his.url.includes(web.domain))
     );
