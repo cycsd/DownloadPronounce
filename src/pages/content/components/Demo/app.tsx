@@ -14,7 +14,7 @@ const App = (props: { audio_src: string, word_text: string }) => {
           alt="copy"
         />
       </button>
-      <a href={props.audio_src} download={props.word_text}>
+      <a href={props.audio_src} download={props.word_text} target='_blank'>
         <img
           src={chrome.runtime.getURL(download)}
           alt="download"
