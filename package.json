@@ -1,8 +1,8 @@
 {
-    "name": "solid-chrome-extension-template",
-    "displayName": "Solid Chrome Extension Template",
+    "name": "download-pronounce",
+    "displayName": "DownloadPronounce",
     "version": "0.202212.1",
-    "description": "Chrome Extension boilerplate with SolidJS + Vite + ManifestV3",
+    "description": "download-pronounce",
     "license": "MIT",
     "repository": {
         "type": "git",
