@@ -1,21 +1,16 @@
+import { render } from 'solid-js/web';
+import App from './Demo/app';
 
 export function FreeDictionary(word: string) {
-    const audio_attribute = "[onclick^='snd.play']";
-    const audios = document.querySelectorAll(audio_attribute);
-    console.log('inFreeDicitonary');
-    console.log(audios);
-    // const target_element_class = ".word-syllables-prons-header-content";//".word-syllables-prons-header-content"
-    // const targets = document.querySelectorAll(target_element_class);
-    
-    // targets.forEach((place, index) => {
-    //     const audio_source = spans[index]
-    //         .querySelector('audio')
-    //         .querySelector('source');
-    //     ;
-    //     const insert_element = document.createElement("div");
-    //     insert_element.style.display = 'inline-block';
-    //     place.insertAdjacentElement('beforeend', insert_element);
-    //     render(() => <App audio_src={audio_source.src} word_text={word} />, insert_element);
+    const audios_css = [".snd-icon-US", ".snd-icon-UK", ".snd-icon-plain"];
+    const audios = audios_css.map(css => document.querySelector(css));
 
-    // })
+    audios.forEach((audio: HTMLElement, index) => {
+        const url = `https:${audio.getAttribute('onclick').split("'")[1]}`;
+        const insert_element = document.createElement("div");
+        insert_element.style.display = 'inline-block';
+        audio.insertAdjacentElement('afterend', insert_element);
+        render(() => <App audio_src={url} word_text={word} />, insert_element);
+
+    })
 }
