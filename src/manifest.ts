@@ -21,10 +21,10 @@ const manifest = defineManifest(async () => ({
   ],
   action: {
     default_popup: "src/pages/popup/index.html",
-    default_icon: "icons/34x34.png",
+    default_icon: "icons/talking32x32.png",
   },
   icons: {
-    "128": "icons/128x128.png",
+    "128": "icons/talking128x128.png",
   },
   content_scripts: [
     {

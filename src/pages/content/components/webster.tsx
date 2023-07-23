@@ -12,13 +12,6 @@ export function Webster(word: string) {
     targets.forEach((target:HTMLElement, index) => {
         const insert_element = document.createElement("div");
         insert_element.style.display = 'inline-block';
-        //target.classList.remove('flex-wrap');
-        //target.style.display = 'grid';
-        //target.style.gridColumn = '3'
-        // target.style.flexWrap = 'nowrap';
-        // target.style.justifyContent = 'center'
-
-        //insert_element.style.flexGrow = '1';
         target.insertAdjacentElement('beforeend', insert_element);
         render(() => <App audio_src={audio_url} word_text={word} />, insert_element);
 
