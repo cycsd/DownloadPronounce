@@ -15,6 +15,9 @@ const manifest = defineManifest(async () => ({
   description: packageJson.description,
   options_page: "src/pages/options/index.html",
   background: { service_worker: "src/pages/background/index.ts" },
+  permissions: [
+    "history","tabs"
+  ],
   action: {
     default_popup: "src/pages/popup/index.html",
     default_icon: "icons/34x34.png",
